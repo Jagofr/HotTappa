@@ -1,6 +1,12 @@
 extends CanvasLayer
 
-signal start_game
+signal button_play
+signal button_highscore
+signal message_close
+
+enum Difficulty {EASY, SCALED, HARD}
+
+signal start_game(d)
 
 
 func _ready():
@@ -10,8 +16,15 @@ func _ready():
 
 #func _process(delta):
 #	pass
-
-func showMessage(msg:String , time:int):
+		
+func showMessage(msg:String , time:int, closeable:bool):
+	if(closeable):
+		$MessageBox/CloseButton.show()
+		$MessageBox/CloseButton.disabled = false
+	else:
+		$MessageBox/CloseButton.hide()
+		$MessageBox/CloseButton.disabled = true
+	
 	$MessageBox/Message.text = msg
 	$MessageBox/MessageTimer.wait_time = time
 	$MessageBox/MessageTimer.start()
@@ -29,17 +42,19 @@ func _on_MessageTimer_timeout():
 
 
 func _on_HighScoreButton_pressed():
-	showMessage("Feature Not Available", 2)
-	pass # Replace with function body.
+	emit_signal("button_highscore")
 
 
 func _on_MultiplayerButton_pressed():
-	showMessage("Feature Not Available", 2)
+	showMessage("Feature Not Available", 2, true)
 	pass # Replace with function body.
 
 
 func _on_PlayButton_pressed():
-	for child in $".".get_children():
-		child.hide()
-	emit_signal("start_game")
+	emit_signal("button_play")
+
+
+func _on_CloseButton_pressed():
+	$MessageBox/MessageTimer.stop()
+	$MessageBox.hide()
 	pass # Replace with function body.

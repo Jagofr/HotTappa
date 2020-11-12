@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://screens/Difficulty.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://resources/fonts/Bitstream Vera Sans Mono Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="Difficulty" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.768627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Easy" type="Button" parent="."]
+margin_left = 332.04
+margin_top = 438.158
+margin_right = 500.04
+margin_bottom = 520.158
+hint_tooltip = "Very Laid Back.
+Coin gives generous amount of time.
+More to kill time."
+custom_fonts/font = SubResource( 2 )
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="Easy"]
+margin_left = -322.83
+margin_top = 8.52438
+margin_right = 27.1702
+margin_bottom = 71.5244
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0.113725, 0.113725, 0.415686, 1 )
+text = "Very Laid Back.
+Coin gives generous amount of time.
+More to kill time."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Button" parent="."]
+margin_left = 254.0
+margin_top = 538.58
+margin_right = 500.0
+margin_bottom = 620.58
+hint_tooltip = "How the game was intended to be played. Coin gives less time as score increases."
+custom_fonts/font = SubResource( 2 )
+text = "Normal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="Normal"]
+margin_left = -245.0
+margin_top = 1.0
+margin_right = -8.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0.113725, 0.113725, 0.415686, 1 )
+text = "How the game was intended 
+to be played. 
+Coin gives less time as
+score increases."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard" type="Button" parent="."]
+margin_left = 332.0
+margin_top = 638.0
+margin_right = 500.0
+margin_bottom = 720.0
+hint_tooltip = "Speed Cranked to Max.
+Coin gives little to no time."
+custom_fonts/font = SubResource( 2 )
+text = "Hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="Hard"]
+margin_left = -323.0
+margin_top = 9.0
+margin_right = -57.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0.113725, 0.113725, 0.415686, 1 )
+text = "Speed Cranked to Max.
+Coin gives little to no time."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 404.789
+margin_top = 164.293
+margin_right = 494.789
+margin_bottom = 246.293
+custom_fonts/font = SubResource( 2 )
+text = "<<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Easy" to="." method="_on_Easy_pressed"]
+[connection signal="pressed" from="Normal" to="." method="_on_Normal_pressed"]
+[connection signal="pressed" from="Hard" to="." method="_on_Hard_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

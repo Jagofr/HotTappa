@@ -24,7 +24,11 @@ config/name="HotTappa"
 config/description="A game where tapping a coin fast gets you places."
 run/main_scene="res://screens/Game.tscn"
 boot_splash/image="res://resources/Jagofr-Logo-Alt-500x500.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [display]
 
@@ -38,6 +42,12 @@ window/stretch/aspect="keep_width"
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+2d/physics_engine="GodotPhysics"
+3d/physics_engine="Bullet"
+2d/thread_model=2
 
 [rendering]
 

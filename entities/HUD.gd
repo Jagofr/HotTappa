@@ -3,6 +3,7 @@ extends CanvasLayer
 signal game_pause
 signal game_end(time)
 signal coin_tapped
+signal move_stopped
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,3 +38,7 @@ func _on_AliveTimer_timeout():
 func _on_PauseButton_pressed():
 	emit_signal("game_pause")
 	pass # Replace with function body.
+
+
+func _on_TapCoin_movement_stopped():
+	emit_signal("move_stopped")

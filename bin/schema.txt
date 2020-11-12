@@ -1,0 +1,16 @@
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE `normal` (
+	`rank`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`player_name`	TEXT NOT NULL,
+	`player_score`	INTEGER NOT NULL
+);
+CREATE TABLE `hard` (
+	`rank`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`player_name`	TEXT NOT NULL,
+	`player_score`	INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS "easy" (
+	`rank`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`player_name`	TEXT NOT NULL,
+	`player_score`	INTEGER NOT NULL
+);

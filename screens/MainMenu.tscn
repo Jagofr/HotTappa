@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/MainMenu.gd" type="Script" id=1]
 
@@ -18,6 +18,10 @@ size = 64
 font_data = SubResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 24
 font_data = SubResource( 3 )
 
@@ -45,6 +49,39 @@ text = "HotTappa!"
 valign = 1
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="LineEdit" parent="."]
+margin_left = 28.2597
+margin_top = 273.817
+margin_right = 266.26
+margin_bottom = 321.817
+rect_pivot_offset = Vector2( 119, 63.1831 )
+custom_fonts/font = SubResource( 5 )
+max_length = 16
+context_menu_enabled = false
+clear_button_enabled = true
+placeholder_text = "Player Name"
+caret_blink = true
+caret_blink_speed = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VibrationTime" type="LineEdit" parent="."]
+margin_left = 302.0
+margin_top = 349.0
+margin_right = 516.0
+margin_bottom = 397.0
+rect_pivot_offset = Vector2( 119, 63.1831 )
+custom_fonts/font = SubResource( 5 )
+text = "100"
+max_length = 16
+context_menu_enabled = false
+caret_blink = true
+caret_blink_speed = 0.4
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -119,6 +156,7 @@ __meta__ = {
 }
 
 [node name="MessageBox" type="ColorRect" parent="."]
+visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -138,7 +176,7 @@ margin_top = -75.0
 margin_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Feature Currently Unavailable"
 align = 1
 valign = 1
@@ -148,8 +186,20 @@ __meta__ = {
 }
 
 [node name="MessageTimer" type="Timer" parent="MessageBox"]
+
+[node name="CloseButton" type="Button" parent="MessageBox"]
+margin_left = 408.0
+margin_top = -42.0
+margin_right = 490.0
+margin_bottom = -7.0
+custom_fonts/font = SubResource( 6 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="HighScoreButton" to="." method="_on_HighScoreButton_pressed"]
 [connection signal="pressed" from="MultiplayerButton" to="." method="_on_MultiplayerButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="timeout" from="MessageBox/MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="pressed" from="MessageBox/CloseButton" to="." method="_on_CloseButton_pressed"]
