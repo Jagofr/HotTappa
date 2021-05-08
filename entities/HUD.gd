@@ -26,18 +26,15 @@ func endGame(time):
 
 func _on_TapCoin_tapped():	
 	emit_signal("coin_tapped")
-	pass
 
 
 func _on_AliveTimer_timeout():
 	$AliveTimer.stop()
 	endGame(3)
-	pass # Replace with function body.
 
 
 func _on_PauseButton_pressed():
 	emit_signal("game_pause")
-	pass # Replace with function body.
 
 
 func _on_TapCoin_movement_stopped():

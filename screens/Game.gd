@@ -1,8 +1,5 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var gameRunning = false
 var gameDiff
 var newPosition = Vector2()
@@ -34,7 +31,6 @@ var uRandTime
 enum GameMode {VS, LMS}
 enum Difficulty {EASY, SCALED, HARD}
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	scoresdatabase = Directory.new()
@@ -66,8 +62,6 @@ func _ready():
 	$HUD/TapCoin/Animation.stop()
 	$MainMenu/VibrationTime.hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(gameRunning):
 		$HUD/TimeLeftBar.value = $HUD/AliveTimer.time_left
@@ -79,8 +73,6 @@ func _process(delta):
 			$HUD/AliveTimer/TimeLeft.text = timeText
 
 func startGame(difficulty):
-	#vibTime = $MainMenu/VibrationTime.text.to_int()
-	#$MainMenu/VibrationTime.hide()
 	hideMenu("Main")
 	$MainMenu.showMessage("Get Ready to start\ntapping the coin!", 5, false)
 	newGame(difficulty)
@@ -139,7 +131,6 @@ func endGame(time):
 		hideMenu("Pause")
 		$HUD/PauseMenu/ResumeButton.disabled = false
 	showMenu("Main")
-	#$MainMenu/VibrationTime.show()
 	
 func toMainMenu():
 	$HUD/PauseMenu/ResumeButton.disabled = true
@@ -315,7 +306,6 @@ func _on_HUD_coin_tapped():
 		Difficulty.HARD:
 			newTime = clamp($HUD/AliveTimer.time_left + rand_range(0.2, 0.47), 0, 25)
 	
-#	$AliveTimer.stop()
 	$HUD/AliveTimer.wait_time = float(newTime)
 	$HUD/AliveTimer.start()
 	$HUD/ScoreLabel.text = String(score)
@@ -347,5 +337,4 @@ func _on_HighScoreMenu_go_back():
 
 
 func _on_MainMenu_button_highscore():
-	#$MainMenu.showMessage("High Score Feature Not Implemented As Yet", 5, true)
 	showMenu("HighScore")

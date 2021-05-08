@@ -15,7 +15,7 @@ _global_script_classes=[ {
 "path": "res://admob-lib/admob.gd"
 } ]
 _global_script_class_icons={
-"AdMob": ""
+"AdMob": "res://admob-lib/icon.png"
 }
 
 [application]
