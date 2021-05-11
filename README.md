@@ -1,5 +1,5 @@
 # HotTappa
-A Tapping Game that Tests you against speed and visual awareness 
+A Tapping Game that tests your speed and visual awareness 
 
 This is the source code for the game HotTappa!
 Created, Developed and Maintained by Gerard (Jagofr) Francis.
